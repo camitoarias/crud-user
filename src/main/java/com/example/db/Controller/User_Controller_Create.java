@@ -4,6 +4,7 @@ import com.example.db.Repository.Dao.User_Repository;
 import com.example.db.Repository.Dao.User_Service;
 import com.example.db.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,14 @@ public class User_Controller_Create {
 
     @RequestMapping("/testUser")
     public String UserchatCreate(){
-        User_chatbot usuario = new User_chatbot("tes48","315789654","99","carmen","carta","5","adminitido");
+        User_chatbot usuario = new User_chatbot("usuario para react","315789654","100","front-end","mostrar","5","adminitido");
 
         userService.save_userchat(usuario);
 
         return "hola espero haber creado mi usuario";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping ("/listuser")
     public List<User_chatbot> getusuarios(){
         List<User_chatbot> lista= userService.get_userschat();
@@ -45,6 +47,9 @@ public class User_Controller_Create {
         userService.updateuser(usuario,ID);
         return "creo que he modificado tu vida y tocado tu corazon";
     }
+
+
+
 
 
 
