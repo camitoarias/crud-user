@@ -1,4 +1,4 @@
-package com.example.db.Entity;
+package com.example.db.Ite_chat_user.Dao.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

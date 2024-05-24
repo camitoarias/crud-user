@@ -1,6 +1,6 @@
-package com.example.db.Repository.Dao;
+package com.example.db.Ite_chat_user.Dao;
 
-import com.example.db.Entity.User_chatbot;
+import com.example.db.Ite_chat_user.Dao.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +8,6 @@ import java.util.Optional;
 import java.util.stream.StreamSupport;
 import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @RestController

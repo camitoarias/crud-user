@@ -1,8 +1,7 @@
-package com.example.db.Controller;
+package com.example.db.Ite_chat_user.Dao.Controller;
 
-import com.example.db.Repository.Dao.User_Repository;
-import com.example.db.Repository.Dao.User_Service;
-import com.example.db.Entity.User_chatbot;
+import com.example.db.Ite_chat_user.Dao.User_Service;
+import com.example.db.Ite_chat_user.Dao.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

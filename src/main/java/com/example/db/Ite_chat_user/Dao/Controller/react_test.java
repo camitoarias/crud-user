@@ -1,6 +1,6 @@
-package com.example.db.Controller;
+package com.example.db.Ite_chat_user.Dao.Controller;
 
-import com.example.db.Entity.User_chatbot;
+import com.example.db.Ite_chat_user.Dao.Entity.User_chatbot;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

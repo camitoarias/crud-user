@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>db</artifactId>
+	<artifactId>chatbot-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>db.camilo</name>
 	<description>Demo project for Spring Boot</description>
@@ -70,6 +70,7 @@
 
 
 
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
 		<!-- dependencia para lograr un web socket -->
 		<dependency>
@@ -83,6 +84,36 @@
 			<artifactId>spring-messaging</artifactId>
 			<version>6.1.6</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>6.2.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/org.springframework.security.config -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>6.2.4</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20240303</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.1</version>
+		</dependency>
+
+
+
+
 
 
 
@@ -91,6 +122,7 @@
 
 
 	</dependencies>
+
 
 	<build>
 		<plugins>
