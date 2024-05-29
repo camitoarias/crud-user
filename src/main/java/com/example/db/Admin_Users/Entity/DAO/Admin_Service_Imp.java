@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+
 public class Admin_Service_Imp implements  Admin_Service {
 
 
@@ -18,23 +18,15 @@ public class Admin_Service_Imp implements  Admin_Service {
     @Override
     public Admin_user findByUsername(String username) {
         Admin_user encontrado=adminRepository.findByUsername(username);
-
-
         return encontrado;
     }
 
     @Override
     public Admin_user save_userchat(Admin_user adminUser) {
-        Admin_user SST= new Admin_user("SST","sst1237");
         return adminRepository.save(adminUser);
     }
 
-    @RequestMapping("/test/admin")
-    public String save(){
-        Admin_user SST= new Admin_user("SST","sst1237");
-        save_userchat(SST);
-        return " eh guardado mi usuario";
-    }
+
 
 
 }

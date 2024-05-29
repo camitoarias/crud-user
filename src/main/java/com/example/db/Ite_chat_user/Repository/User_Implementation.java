@@ -1,6 +1,6 @@
-package com.example.db.Ite_chat_user.Dao;
+package com.example.db.Ite_chat_user.Repository;
 
-import com.example.db.Ite_chat_user.Dao.Entity.User_chatbot;
+import com.example.db.Ite_chat_user.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 
 import java.util.List;
 
-@RestController
-public class User_Implementation implements  User_Service{
+
+public class User_Implementation implements User_Service {
 
 
     @Autowired
@@ -30,12 +30,7 @@ public class User_Implementation implements  User_Service{
         Iterable<User_chatbot> iterable = userRepository.findAll();
 
         List<User_chatbot> lista_usuarios = convertirIterableALista(iterable);
-       if (!lista_usuarios.isEmpty()) {
-            User_chatbot camilo = lista_usuarios.get(0);
-            System.out.println("Primer usuario: " + camilo.getName());
-        } else {
-            System.out.println("No hay usuarios en la base de datos.");
-        }
+
 
         return lista_usuarios;
 
@@ -44,7 +39,6 @@ public class User_Implementation implements  User_Service{
 
     @Override
     public void delete_userbyID(Long UserID) {
-
         userRepository.deleteById(UserID);
     }
 
@@ -55,10 +49,10 @@ public class User_Implementation implements  User_Service{
             User_chatbot existingUser = optionalUser.get();
             // Actualiza los campos necesarios
             existingUser.setName(userChatbot.getName());
-            existingUser.setPhone_Number(userChatbot.getPhone_Number());
+            existingUser.setPhoneNumber(userChatbot.getPhoneNumber());
             existingUser.setTag(userChatbot.getTag());
             existingUser.setIntention(userChatbot.getIntention());
-            existingUser.setState(userChatbot.getState());
+
             existingUser.setGH_ID(userChatbot.getGH_ID());
             existingUser.setIteration_Number(userChatbot.getIteration_Number());
 
@@ -70,6 +64,19 @@ public class User_Implementation implements  User_Service{
             return null; // O lanza una excepción si prefieres
         }
 
+    }
+
+    @Override
+    public User_chatbot findByPhoneNumber(String phonenumber) {
+        User_chatbot usuario_busqueda=userRepository.findByPhoneNumber(phonenumber);
+        
+        return  usuario_busqueda;
+    }
+
+    @Override
+    public User_chatbot setcontext(Long context, User_chatbot usuario_context) {
+        usuario_context.setCONTEXTO(context);
+        return userRepository.save(usuario_context);
     }
 
     private <T> List<T> convertirIterableALista(Iterable<T> iterable) {

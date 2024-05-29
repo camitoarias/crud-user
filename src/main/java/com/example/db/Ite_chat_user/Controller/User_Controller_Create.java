@@ -1,7 +1,7 @@
-package com.example.db.Ite_chat_user.Dao.Controller;
+package com.example.db.Ite_chat_user.Controller;
 
-import com.example.db.Ite_chat_user.Dao.User_Service;
-import com.example.db.Ite_chat_user.Dao.Entity.User_chatbot;
+import com.example.db.Ite_chat_user.Repository.User_Service;
+import com.example.db.Ite_chat_user.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class User_Controller_Create {
 
     @RequestMapping("/testUser")
     public String UserchatCreate(){
-        User_chatbot usuario = new User_chatbot("usuario para react","315789654","100","front-end","mostrar","5","adminitido");
+        User_chatbot usuario = new User_chatbot("arreglo","315789654","100","dane","mostrar","5");
 
         userService.save_userchat(usuario);
 
@@ -41,11 +41,15 @@ public class User_Controller_Create {
 
     @RequestMapping("/updateuser")
     public String update_userchat(){
-        User_chatbot usuario = new User_chatbot("cambio","4002545","50","retiro","despedida","7","finalizado");
+        User_chatbot usuario = new User_chatbot("cambio","4002545","50","retiro","despedida","7");
         long ID =3l;
         userService.updateuser(usuario,ID);
         return "creo que he modificado tu vida y tocado tu corazon";
     }
+
+
+
+
 
 
 

@@ -33,7 +33,7 @@ public class Controler_Admin {
             }
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else {
-            System.out.println("cuidadoooo");
+
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         }

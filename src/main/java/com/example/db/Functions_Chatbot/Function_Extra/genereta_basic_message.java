@@ -31,10 +31,7 @@ public class genereta_basic_message {
     @Autowired
     private RestTemplate restTemplate;
 
-    public JSONObject basic_message(String json_data){
-
-
-
+    public JSONObject basic_message_front(String json_data){
         JSONObject jsonObject = new JSONObject(json_data);
         String user_name = jsonObject.getString("username");
         String message= jsonObject.getString("message");
@@ -62,13 +59,13 @@ public class genereta_basic_message {
         return  finalMessageJSON;
     }
 
-    public String sendPostRequest(String json) {
+    public void sendPostRequest(String json) {
         String url = "https://waba-sandbox.360dialog.io/v1/messages";
 
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("D360-API-KEY","rURohx_sandbox");
+        headers.add("D360-API-KEY","4ZFHix_sandbox");
 
         HttpEntity<String> requestEntity = new HttpEntity<>(json, headers);
 
@@ -80,6 +77,26 @@ public class genereta_basic_message {
             System.err.println("Error en la solicitud: " + response.getStatusCode());
         }
 
-   return "a lo menos termine";
 
-}}
+
+}
+    public void chatbot_message_send(String message){
+        JSONObject finalMessageJSON = new JSONObject();
+
+        JSONObject jsonMensajeTexto = new JSONObject();
+        jsonMensajeTexto.put("body", message);
+
+        finalMessageJSON.put("messaging_product", "whatsapp");
+        finalMessageJSON.put("recipient_type", "individual");
+        finalMessageJSON.put("to", "573248324121"); // Replace with appropriate recipient number
+        finalMessageJSON.put("type", "text");
+        finalMessageJSON.put("text",jsonMensajeTexto);
+
+        System.out.println(finalMessageJSON);
+        sendPostRequest(finalMessageJSON.toString());
+    }
+
+
+}
+
+

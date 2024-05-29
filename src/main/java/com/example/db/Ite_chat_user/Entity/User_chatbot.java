@@ -1,4 +1,4 @@
-package com.example.db.Ite_chat_user.Dao.Entity;
+package com.example.db.Ite_chat_user.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,8 +17,8 @@ public class User_chatbot {
     //@GeneratedValue
     private long ID;
 
-    @Getter @Setter @Column(name = "Phone-Number")
-    private String Phone_Number;
+    @Getter @Setter @Column(name = "phonenumber")
+    private String phoneNumber;
 
     @Getter @Setter @Column(name = "GH-ID")
     private String GH_ID;
@@ -31,8 +31,10 @@ public class User_chatbot {
 
     @Getter @Setter @Column(name = "Iteration-Number")
     private  String  Iteration_Number;
-    @Getter @Setter @Column(name = "State")
-    private String State;
+
+
+    @Getter @Setter @Column(name ="CONTEXTO")
+    private Long CONTEXTO;
 
 
     public User_chatbot() {
@@ -40,14 +42,14 @@ public class User_chatbot {
 
 
 
-    public User_chatbot(String name, String phone_Number, String GH_ID, String tag, String intention, String iteration_Number, String state) {
+    public User_chatbot(String name, String phoneNumber, String GH_ID, String tag, String intention, String iteration_Number) {
         Name = name;
-        Phone_Number = phone_Number;
+        this.phoneNumber = phoneNumber;
         this.GH_ID = GH_ID;
         Tag = tag;
         Intention = intention;
         Iteration_Number = iteration_Number;
-        State=state;
+
     }
 
 

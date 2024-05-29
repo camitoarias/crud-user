@@ -20,16 +20,23 @@ public class Basic_messages {
     genereta_basic_message functions_message;
 
     @PostMapping("/sendmessage")
-    public ResponseEntity<Void> send_message_ISA(@RequestBody String message){
-        JSONObject jsonObject=functions_message.basic_message(message);
+    public ResponseEntity<Void> send_message_ISA_Front(@RequestBody String message){
+        JSONObject jsonObject=functions_message.basic_message_front(message);
         String json_cadena=jsonObject.toString();
         System.out.println(json_cadena);
         functions_message.sendPostRequest(json_cadena);
 
-
-
-
          return new ResponseEntity<>( HttpStatus.OK);
+    }
+
+    public ResponseEntity<Void> response_ISA(String message){
+
+            functions_message.chatbot_message_send(message);
+            return new ResponseEntity<>(HttpStatus.OK);
+
+
+
+
     }
 
 

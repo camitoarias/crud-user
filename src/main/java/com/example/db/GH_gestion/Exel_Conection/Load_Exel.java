@@ -19,7 +19,7 @@ public class Load_Exel {
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet sheet = workbook.getSheetAt(0);
         if(sheet!=null){
-            System.out.println("algo encontre");
+            System.out.println("cargar archivo exitoso ");
         }
         return  sheet;
 
@@ -29,8 +29,8 @@ public class Load_Exel {
         for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
             Row row = sheet.getRow(rowIndex);
             if (row != null) {
-                System.out.println("ando buscando");
-                Cell cedulaCell = row.getCell(1); // Suponiendo que la columna "CEDULA" está en el índice 0
+
+                Cell cedulaCell = row.getCell(1); // Suponiendo que la columna "CEDULA" está en el índice 1
                 System.out.println(cedulaCell);
                 if (cedulaCell != null && cedulaCell.getCellType() == CellType.STRING) {
                     String cellValue = cedulaCell.getStringCellValue();
