@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 
-@Service
+
 public interface Admin_Service    {
     @Query("SELECT u FROM admin_users u WHERE u.Username = ?1")
     Admin_user findByUsername(String username);

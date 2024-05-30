@@ -1,28 +1,15 @@
-package com.example.db.Functions_Chatbot.Function_Extra;
+package com.example.db.Functions_Chatbot.Function_Extra.MESSAGES_FUNCTIONS;
 
-import org.apache.catalina.connector.Request;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.http.HttpHeaders;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
-
-
 
 
 @Component
@@ -59,6 +46,7 @@ public class genereta_basic_message {
         return  finalMessageJSON;
     }
 
+    //PENDIENTE QUITAR
     public void sendPostRequest(String json) {
         String url = "https://waba-sandbox.360dialog.io/v1/messages";
 

@@ -2,6 +2,7 @@ package com.example.db.Chatbot_ISA.Intention.DAO;
 
 import com.example.db.Chatbot_ISA.Intention.Intentention_Entity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-
+@Service
 public class Intention_IMP implements  Intention_Service{
 
     @Autowired

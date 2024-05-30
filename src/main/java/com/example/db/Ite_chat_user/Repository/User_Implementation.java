@@ -2,6 +2,7 @@ package com.example.db.Ite_chat_user.Repository;
 
 import com.example.db.Ite_chat_user.Entity.User_chatbot;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 
+@Service
 public class User_Implementation implements User_Service {
 
 
@@ -25,7 +27,7 @@ public class User_Implementation implements User_Service {
 
     @Override
     public List<User_chatbot> get_userschat() {
-        System.out.println("hola eh traido algunos usuarios de la base de datos");
+
 
         Iterable<User_chatbot> iterable = userRepository.findAll();
 
