@@ -25,20 +25,32 @@ public class Context_Analizer {
     //punto central con contexto y se verifica si la respuesta era la esperada , retorna id de mensaje siguiente
     public String verify_context(Long id_context, String Answer){
 
-        Optional<Messages_Entity> mensaje_analizar= messageService.finById(id_context);//PENDIENTE CAMBIO PARA CONTROLADOR
-//String de las respuestas guardadas en la base de datos
-        String complet_message=mensaje_analizar.get().getRespuestas();
-        System.out.println(complet_message);
+        //el id context es el mensaje siguiente
+         String id_verifi= String.valueOf(id_context);
+        if(id_verifi.startsWith("99")){
+            System.out.println("supongamos que ejecute una accion ");
+            return "Action";
 
-        List<Map<String, Object>> separeted_messages=procesarRespuestas(complet_message);
-        System.out.println(separeted_messages);
-       //  String id_message_response=obtenerAsociacion(separeted_messages,Answer);
-        String id_message_response=obtenerAsociacion(separeted_messages,Answer);
+        }else{
+            Optional<Messages_Entity> mensaje_analizar= messageService.finById(id_context);//PENDIENTE CAMBIO PARA CONTROLADOR del mensaje service
+            String id_message= String.valueOf(mensaje_analizar.get().getID());
 
-         if (id_message_response!=null){
-             return id_message_response;
-         }else{
-             return null;
+            //String de las respuestas guardadas en la base de datos
+            String complet_message=mensaje_analizar.get().getRespuestas();
+            System.out.println(complet_message);
+
+            List<Map<String, Object>> separeted_messages=procesarRespuestas(complet_message);
+            System.out.println(separeted_messages);
+            //  String id_message_response=obtenerAsociacion(separeted_messages,Answer);//funcion con un unico map
+            String id_message_response=obtenerAsociacion(separeted_messages,Answer);
+
+            if (id_message_response!=null){
+                return id_message_response;
+            }else{
+
+
+            }
+return null;
          }
 
 
@@ -92,6 +104,7 @@ public class Context_Analizer {
     }*/
 
 
+    //generar la lista de map con el string de respuestas en DB
     public static List<Map<String, Object>> procesarRespuestas(String respuestas) {
         List<Map<String, Object>> resultado = new ArrayList<>();
 

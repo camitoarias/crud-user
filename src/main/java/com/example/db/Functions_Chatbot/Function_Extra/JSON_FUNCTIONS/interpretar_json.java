@@ -30,8 +30,6 @@ public class interpretar_json {
 
 
 
-   @Autowired
-    CentrallController centrallController;
 
    @Autowired
     Intention_Service intentionService;
@@ -80,7 +78,106 @@ public class interpretar_json {
         System.out.println("Body: " + body);
 
         String[] retornar={body,numberwpp};
-        return retornar ;
+        return retornar ; }
+
+
+    public  String  extract_body(String json) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        JsonNode rootNode = objectMapper.readTree(json);
+
+        JsonNode entryArray = rootNode.path("entry");
+
+        // Asumiendo que quieres acceder al primer objeto del array "entry"
+        JsonNode firstEntry = entryArray.get(0);
+
+        // Navega al campo "changes"
+        JsonNode changesArray = firstEntry.path("changes");
+
+        // Asumiendo que quieres acceder al primer objeto del array "changes"
+        JsonNode firstChange = changesArray.get(0);
+
+        // Navega al campo "value"
+        JsonNode valueNode = firstChange.path("value");
+
+        // Navega al campo "messages"
+        JsonNode messagesArray = valueNode.path("messages");
+
+        // Asumiendo que quieres acceder al primer objeto del array "messages"
+        JsonNode firstMessage = messagesArray.get(0);
+
+        // Navega al campo "text"
+        JsonNode textNode = firstMessage.path("text");
+
+        // Obtén el valor del campo "body"
+        String body = textNode.path("body").asText();
+        return body;
+    }
+    public String extract_number(String json) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        JsonNode rootNode = objectMapper.readTree(json);
+
+        JsonNode entryArray = rootNode.path("entry");
+
+        // Asumiendo que quieres acceder al primer objeto del array "entry"
+        JsonNode firstEntry = entryArray.get(0);
+
+        // Navega al campo "changes"
+        JsonNode changesArray = firstEntry.path("changes");
+
+        // Asumiendo que quieres acceder al primer objeto del array "changes"
+        JsonNode firstChange = changesArray.get(0);
+
+        // Navega al campo "value"
+        JsonNode valueNode = firstChange.path("value");
+
+        // Navega al campo "messages"
+        JsonNode messagesArray = valueNode.path("messages");
+
+        // Asumiendo que quieres acceder al primer objeto del array "messages"
+        JsonNode firstMessage = messagesArray.get(0);
+
+
+        // Navega al campo "text"
+
+
+        String numberwpp=firstMessage.path("from").asText();
+
+       return  numberwpp;
+
+
+    }
+
+    public String extract_name(String json)throws  JsonProcessingException{
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        JsonNode rootNode = objectMapper.readTree(json);
+
+        JsonNode entryArray = rootNode.path("entry");
+        // Asumiendo que quieres acceder al primer objeto del array "entry"
+        JsonNode firstEntry = entryArray.get(0);
+
+        JsonNode changesArray = firstEntry.path("changes");
+
+        JsonNode firstChange = changesArray.get(0);
+        JsonNode valueNode = firstChange.path("value");
+        // Navega al campo "changes"
+
+        JsonNode contacsArray = valueNode.path("contacts");
+
+
+
+        // Asumiendo que quieres acceder al primer objeto del array "messages"
+        JsonNode firstMessage = contacsArray.get(0);
+        JsonNode namenode = firstMessage.path("profile");
+        String name=namenode.path("name").asText();
+        return name;
+    }
+
+
+
+
 
         /* FUNCION NO VALIDA IN HERE
         Long id_intention=User_verify(numberwpp,body);
@@ -98,7 +195,7 @@ public class interpretar_json {
 
 
 
-    }
+
 
 
     /*public Long User_verify(String numberwpp,String message){

@@ -6,6 +6,8 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 public class userchatbot_add {
     //esta clase pretende devolver un usuario al controler sobre el cual estar trabajando
@@ -14,12 +16,16 @@ public class userchatbot_add {
 
 
     //verifica si ese numero de wpp ya esta agregado
-    public boolean verify_exist(String Phone_number){
+    public User_chatbot verify_exist(String Phone_number){
         User_chatbot consultado=userService.findByPhoneNumber(Phone_number);
         if(consultado!=null){
-            return true;
-        }else return false;
+            return consultado;
+        }else return null;
     }
+
+
+
+
 
     //pendiente generar usuario si se encuentra en la lista de exel
 

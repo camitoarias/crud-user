@@ -36,6 +36,9 @@ public class User_chatbot {
     @Getter @Setter @Column(name ="CONTEXTO")
     private Long CONTEXTO;
 
+    @Getter @Setter @Column(name="CEDULA")
+    private String Cedula;
+
 
     public User_chatbot() {
     }

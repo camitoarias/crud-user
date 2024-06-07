@@ -32,6 +32,9 @@ public class Messages_Entity {
     @Id
     Long ID;
 
+    @Column (name="Action")
+    Long function_action;
+
     public Messages_Entity(String name, String message, String area, String contexto, String[] respuestas) {
         Name = name;
         Message = message;

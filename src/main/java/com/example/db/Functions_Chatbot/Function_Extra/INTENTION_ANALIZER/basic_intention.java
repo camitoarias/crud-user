@@ -3,9 +3,11 @@ package com.example.db.Functions_Chatbot.Function_Extra.INTENTION_ANALIZER;
 import com.example.db.Chatbot_ISA.Intention.DAO.Intention_Service;
 import com.example.db.Chatbot_ISA.Intention.Intentention_Entity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class basic_intention {
 
 
@@ -13,9 +15,9 @@ public class basic_intention {
     Intention_Service intentionService;
 
 
-    //devuelve el id de la intencion reconocida
+    //devuelve el id del mensaje siguiente
     public Long  intention_exam(String message) {
-        List<Intentention_Entity> intentionsList = intentionService.load_intention();
+        List<Intentention_Entity> intentionsList = intentionService.load_intention();//posibilidad de trasladar el servicio para el central controler
 
         // Recorrer la lista de intenciones
         for (Intentention_Entity intentions : intentionsList) {
@@ -23,9 +25,11 @@ public class basic_intention {
             String[] keywords = intentions.getReconocimiento().split("\\^");
             // Verificar si el mensaje contiene alguna de las palabras clave
             for (String keyword : keywords) {
-                System.out.println(keyword);
                 if (message.contains(keyword)) {
-                    return intentions.getID();
+                   //SALIDA PARA PUNTO DE CONTROL
+                    System.out.println(keyword);
+                    //id del siguiente mensaje
+                    return intentions.getId_message();
                 }
             }
         }return null;

@@ -54,6 +54,7 @@ public class User_Implementation implements User_Service {
             existingUser.setPhoneNumber(userChatbot.getPhoneNumber());
             existingUser.setTag(userChatbot.getTag());
             existingUser.setIntention(userChatbot.getIntention());
+            existingUser.setCedula(userChatbot.getCedula());
 
             existingUser.setGH_ID(userChatbot.getGH_ID());
             existingUser.setIteration_Number(userChatbot.getIteration_Number());

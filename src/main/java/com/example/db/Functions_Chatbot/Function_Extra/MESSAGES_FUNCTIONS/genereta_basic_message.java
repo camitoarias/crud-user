@@ -53,7 +53,7 @@ public class genereta_basic_message {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("D360-API-KEY","4ZFHix_sandbox");
+        headers.add("D360-API-KEY","5x96VJ_sandbox");
 
         HttpEntity<String> requestEntity = new HttpEntity<>(json, headers);
 
