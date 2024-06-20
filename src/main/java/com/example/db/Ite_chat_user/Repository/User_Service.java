@@ -18,7 +18,7 @@ public interface User_Service {
    @Query("SELECT u FROM usuarios u WHERE u.phoneNumber =?1")
     User_chatbot findByPhoneNumber(String phoneNumber);
 
-   User_chatbot setcontext(Long context,User_chatbot user_context);
+   User_chatbot setState(Long State,User_chatbot user_context);
 
 
 
