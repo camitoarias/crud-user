@@ -1,4 +1,4 @@
-package com.example.db.Functions_Chatbot.Actions;
+package com.example.db.Functions_Chatbot.Actions.Interfaces;
 
 import com.example.db.Ite_chat_user.Entity.User_chatbot;
 

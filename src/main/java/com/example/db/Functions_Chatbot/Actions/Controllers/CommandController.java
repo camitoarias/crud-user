@@ -1,9 +1,8 @@
-package com.example.db.Functions_Chatbot.Actions;
+package com.example.db.Functions_Chatbot.Actions.Controllers;
 
+import com.example.db.Functions_Chatbot.Actions.Repository.CommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 public class CommandController {

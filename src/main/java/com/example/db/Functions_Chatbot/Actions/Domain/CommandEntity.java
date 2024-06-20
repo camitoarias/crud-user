@@ -1,4 +1,4 @@
-package com.example.db.Functions_Chatbot.Actions.Entity;
+package com.example.db.Functions_Chatbot.Actions.Domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

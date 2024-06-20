@@ -1,9 +1,10 @@
-package com.example.db.Functions_Chatbot.Actions;
+package com.example.db.Functions_Chatbot.Actions.Repository;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.example.db.Functions_Chatbot.Actions.Entity.CommandEntity;
+import com.example.db.Functions_Chatbot.Actions.Interfaces.Command;
+import com.example.db.Functions_Chatbot.Actions.Domain.CommandEntity;
 import com.example.db.Ite_chat_user.Entity.User_chatbot;
 import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
