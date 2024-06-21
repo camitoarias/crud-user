@@ -9,6 +9,7 @@ import lombok.Setter;
 @Table(name="command")
 @NoArgsConstructor
 public class CommandEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter @Getter

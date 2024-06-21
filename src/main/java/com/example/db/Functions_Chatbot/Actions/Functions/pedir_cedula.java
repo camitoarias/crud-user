@@ -12,13 +12,12 @@ import java.io.IOException;
 @Component("pedir_cedula")
 public class pedir_cedula implements Command {
 
-    @Autowired
-    Basic_messages basicMessages;
+
     @Override
     public String execute(String input, User_chatbot usuario) throws IOException {
         String mensaje="por favir digite su numero de cedula";
         System.out.println(mensaje);
-        basicMessages.response_ISA(mensaje);
+
 
         return "cedula pedida";
     }
