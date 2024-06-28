@@ -1,4 +1,4 @@
-package com.example.db.Receibe_send.Aplication;
+package com.example.db.Send.Aplication;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

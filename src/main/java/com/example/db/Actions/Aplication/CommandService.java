@@ -24,6 +24,7 @@ public class CommandService {
     // Repositorio para acceder a los datos de los comandos almacenados en la base de datos.
     private final CommandRepository commandRepository;
     // Contexto de la aplicación para obtener beans de Spring.
+
     private final ApplicationContext context;
 
     /**
@@ -31,6 +32,13 @@ public class CommandService {
      *
      * @param commandRepository Repositorio para acceder a los datos de los comandos.
      * @param context Contexto de la aplicación para obtener beans de Spring.
+     * <b>importante todos los comandos son cargados y almacenados en un map al inciar este servicio</b>
+     *                  <p>
+     *
+     *  * <blockquote>
+     *  <b>este es un servicio provisional y no se planea que sea implementado en el producto terminado </b>
+     *  * </blockquote>
+     *  * </p>
      */
     @Autowired
     public CommandService(CommandRepository commandRepository, ApplicationContext context) {
@@ -42,6 +50,7 @@ public class CommandService {
     /**
      * Carga los comandos desde la base de datos y los almacena en el mapa de comandos.
      */
+    //pendiente optimizacion no cargar todos los comandos solo buscar el comando nesesario
     private void loadCommandsFromDatabase() {
         List<CommandEntity> commands = commandRepository.findAll(); // Obtiene todos los comandos de la base de datos.
         System.out.println(commands);

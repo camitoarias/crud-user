@@ -41,6 +41,14 @@ public class Controler_Admin {
 
     }
 
+    @RequestMapping("/v1/admin-save")
+    public void save_user(){
+        Admin_user administrador=new Admin_user();
+        administrador.setUsername("ejemplo3");
+        administrador.setPassword("contraseña segura");
+        adminService.save_Admin(administrador);
+    }
+
 
 
 

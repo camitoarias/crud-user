@@ -1,4 +1,4 @@
-package com.example.db.Receibe_send.Aplication;
+package com.example.db.Send.Aplication;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
